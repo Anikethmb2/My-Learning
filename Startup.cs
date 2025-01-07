@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Learn.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace Learn
 {
@@ -32,7 +35,7 @@ namespace Learn
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Learn", Version = "v1" });
             });
-            services.AddDbContext<
+            services.AddDbContext<LearnDbContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("NzWalkConectionString")));
         }   
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

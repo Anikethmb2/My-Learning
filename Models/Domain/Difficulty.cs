@@ -1,3 +1,4 @@
+using System;
 namespace Learn.Models.Domain
 {
     public class Difficulty
