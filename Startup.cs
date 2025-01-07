@@ -32,8 +32,8 @@ namespace Learn
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Learn", Version = "v1" });
             });
-        }
-
+            services.AddDbContext<
+        }   
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
